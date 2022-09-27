@@ -1,0 +1,83 @@
+.sign-in-header {
+  margin-top: 20%;
+  display: flex;
+  justify-content: center;
+  font-size: 15.4px;
+  font-family: 'Chivo', sans-serif;
+}
+
+.login-fieldset {
+    display: block;
+    margin-inline-start: 2px;
+    margin-inline-end: 2px;
+    padding-block-start: 0.35em;
+    padding-inline-start: 0.75em;
+    padding-inline-end: 0.75em;
+    padding-block-end: 0.625em;
+    min-inline-size: min-content;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-block-color: grey;
+}
+
+.login-box {
+  align-self: auto;
+  flex: 0 1 auto;
+  width: 36.42%;
+  margin: auto;
+  margin-top: 5%;
+  border: 1cm black;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.login-register__title {
+  font-size: 100%;
+  font-weight: 400;
+  font-family: 'Chivo', sans-serif;
+}
+
+.login-email {
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: black;
+  font-size: 13px;
+  font-family: 'Chivo', sans-serif;
+  height: 48px;
+  padding-left: 0.65em;
+  position: relative;
+  width: 100%;
+  margin: 1em;
+}
+
+.login-password {
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: rgba(0,0,0,.6);
+  font-size: 13px;
+  font-family: 'Chivo', sans-serif;
+  height: 48px;
+  padding-left: 0.65em;
+  position: relative;
+  width: 100%;
+  margin: 1em;
+}
+
+.login-button {
+  background: #000;
+  width: 100%;
+  margin: 1em;
+  border: 2px solid #000;
+  border-radius: 0;
+  box-sizing: border-box;
+  color: #fff;
+  font-family: 'Chivo', sans-serif;
+  cursor: pointer;
+  display: inline-block;
+  padding: 1.2em 2em;
+  text-align: center;
+  transition: box-shadow .2s linear,background-color .15s cubic-bezier(.2,.3,.25,.9);
+}
