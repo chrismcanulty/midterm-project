@@ -9,6 +9,8 @@ const morgan = require('morgan');
 const PORT = process.env.PORT || 8080;
 const app = express();
 
+const itemsHelper = require('./db/queries/items.js');
+
 app.set('view engine', 'ejs');
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
@@ -47,6 +49,27 @@ app.use('/users', usersRoutes);
 app.get('/', (req, res) => {
   res.render('index');
 });
+
+// const db = require("./lib/in-memory-db");
+// const DataHelpers = require("./lib/data-helpers.js")(db);
+
+// const itemsRoutes = require("./routes/items")(DataHelpers);
+
+// // Mount the items routes at the "/items" path prefix:
+// app.use("/items", itemsRoutes);
+
+app.get('/items', (req, res) => {
+  itemsHelper.getItems()
+    .then((data) => {
+      console.log(data);
+      const templateVars = { data };
+      return res.render("items", templateVars)
+    });
+});
+
+// app.post('/items', (req, res) => {
+//   const text = req.body.text;
+// });
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
