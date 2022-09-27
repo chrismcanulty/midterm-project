@@ -9,8 +9,6 @@ const morgan = require('morgan');
 const PORT = process.env.PORT || 8080;
 const app = express();
 
-const itemsHelper = require('./db/queries/items.js');
-
 app.set('view engine', 'ejs');
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
@@ -33,7 +31,8 @@ app.use(express.static('public'));
 const userApiRoutes = require('./routes/users-api');
 const widgetApiRoutes = require('./routes/widgets-api');
 const usersRoutes = require('./routes/users');
-const favouritesRoutes = require('./routes/favourites')
+const favouritesRoutes = require('./routes/favourites');
+const itemsRoutes = require('./routes/items')
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -42,6 +41,7 @@ app.use('/api/users', userApiRoutes);
 app.use('/api/widgets', widgetApiRoutes);
 app.use('/users', usersRoutes);
 app.use('/favourites', favouritesRoutes);
+app.use('/items', itemsRoutes);
 // Note: mount other resources here, using the same pattern above
 
 // Home page
@@ -50,28 +50,6 @@ app.use('/favourites', favouritesRoutes);
 
 app.get('/', (req, res) => {
   res.render('index');
-});
-
-app.get('/items', (req, res) => {
-  itemsHelper.getItems()
-    .then((data) => {
-      const templateVars = { data };
-      return res.render("items", templateVars)
-    });
-});
-
-// below should be a get request - if possible come back and refactor to get request
-
-app.post('/items', (req, res) => {
-  const minValue = req.body.text[0];
-  const maxValue = req.body.text[1];
-  const templateVars = { minValue, maxValue };
-  itemsHelper.filterItemsByPrice(minValue, maxValue)
-    .then((data) => {
-      const templateVars = { data };
-      return res.render("items", templateVars)
-    })
-  console.log(templateVars);
 });
 
 app.listen(PORT, () => {
