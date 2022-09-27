@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Login</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles/login-registration.css" type="text/css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <h3 class="sign-in-header"> Sign In or Create an Account to Unlock</h3>
+  <div class="login-box">
+    <form action='/login' method="POST">
+      <fieldset class="login-fieldset ">
+      <h2 class="login-register__title"> Sign In </h2>
+      <div>
+        <label for="email"></label>
+        <input class="login-email" type=text name=email value maxlength="50" autocapitalize="off" autocomplete="email"
+          placeholder="Email Address" />
+      </div>
+      <div>
+        <label for="password"> </label>
+        <input class="login-password" type=password name=password placeholder="Password" />
+      </div>
+      <button class="login-button" type="submit">Sign In </button>
+    </fieldset>
+  </form>
+</div>
+</body>
+
+</html>
