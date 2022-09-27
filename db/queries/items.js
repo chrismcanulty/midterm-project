@@ -10,4 +10,17 @@ const getItems = () => {
     });
 };
 
-module.exports = { getItems };
+const filterItemsByPrice = (minValue, maxValue) => {
+  return db.query(`SELECT * FROM items
+  WHERE price < $2 AND price > $1
+  ;`, [minValue, maxValue])
+    .then(data => {
+      console.log("Data.rows", data.rows);
+      return data.rows;
+    })
+    .catch((err) => {
+      return err.message;
+    });
+}
+
+module.exports = { getItems, filterItemsByPrice };

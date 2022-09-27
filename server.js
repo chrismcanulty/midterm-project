@@ -50,26 +50,27 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
-// const db = require("./lib/in-memory-db");
-// const DataHelpers = require("./lib/data-helpers.js")(db);
-
-// const itemsRoutes = require("./routes/items")(DataHelpers);
-
-// // Mount the items routes at the "/items" path prefix:
-// app.use("/items", itemsRoutes);
-
 app.get('/items', (req, res) => {
   itemsHelper.getItems()
     .then((data) => {
-      console.log(data);
       const templateVars = { data };
       return res.render("items", templateVars)
     });
 });
 
-// app.post('/items', (req, res) => {
-//   const text = req.body.text;
-// });
+// below should be a get request - if possible come back and refactor to get request
+
+app.post('/items', (req, res) => {
+  const minValue = req.body.text[0];
+  const maxValue = req.body.text[1];
+  const templateVars = { minValue, maxValue };
+  itemsHelper.filterItemsByPrice(minValue, maxValue)
+    .then((data) => {
+      const templateVars = { data };
+      return res.render("items", templateVars)
+    })
+  console.log(templateVars);
+});
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
