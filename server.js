@@ -5,6 +5,7 @@ require('dotenv').config();
 const sassMiddleware = require('./lib/sass-middleware');
 const express = require('express');
 const morgan = require('morgan');
+const cookieSession = require('cookie-session');
 const app = express();
 const PORT = process.env.PORT || 8080;
 
@@ -15,6 +16,10 @@ app.set('view engine', 'ejs');
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieSession({
+  name: 'session',
+  keys: ["Keys[0]"],
+}))
 app.use(
   '/styles',
   sassMiddleware({
@@ -31,7 +36,10 @@ const userApiRoutes = require('./routes/users-api');
 const widgetApiRoutes = require('./routes/widgets-api');
 const usersRoutes = require('./routes/users');
 const loginRoutes = require('./routes/login');
+const logoutRoutes = require(`./routes/logout`);
+const adminLoginRoutes = require(`./routes/adminLogin`);
 const registerRoutes = require('./routes/registration');
+const adminRegisterRoutes = require('./routes/adminRegistration');
 const temphomeRoutes = require('./routes/temphome');
 
 // Mount all resource routes
@@ -41,7 +49,10 @@ app.use('/api/users', userApiRoutes);
 app.use('/api/widgets', widgetApiRoutes);
 app.use('/users', usersRoutes);
 app.use('/login', loginRoutes);
+app.use(`/adminLogin`,adminLoginRoutes);
+app.use(`/logout`,logoutRoutes);
 app.use('/register', registerRoutes);
+app.use('/adminRegister', adminRegisterRoutes);
 app.use('/home', temphomeRoutes);
 // Note: mount other resources here, using the same pattern above
 

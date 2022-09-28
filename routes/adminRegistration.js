@@ -12,9 +12,9 @@ const db = require('../db/connection');
 
 router.get('/', (req, res) => {
   const templateVars = {
-    userRegister: true
+    userRegister: false
   }
-  res.render('registration',templateVars);
+  res.render('registration', templateVars);
 });
 
 
@@ -24,9 +24,10 @@ router.post ('/', (req,res) => {
   const password = req.body.password;
   const email = req.body.email;
 
+
   const hashPassword = bcrypt.hashSync(password, 10);
       db.query(`
-      INSERT INTO users (name, email, password)
+      INSERT INTO admins (name, email, password)
       VALUES($1, $2, $3)
       RETURNING *;
       `, [name, email, password ])
@@ -39,7 +40,6 @@ router.post ('/', (req,res) => {
     .catch((err) => {
       console.log(err.message);
     })
-
 });
 
 module.exports = router;

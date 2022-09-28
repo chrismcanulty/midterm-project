@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  res.send('Temporary Home page')
+  console.log('get home', req.session);
+  res.render('temphome');
 });
 
 module.exports = router;

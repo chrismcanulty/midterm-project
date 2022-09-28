@@ -14,7 +14,11 @@
 
 <body>
   <div class="login-box">
+    <% if(userRegister) { %>
     <form action="/register" method="POST">
+      <% } else { %>
+        <form action="/adminRegister" method="POST">
+          <% } %>
       <fieldset class="login-fieldset ">
         <h2 class="login-register__title"> Create an Account </h2>
         <div>

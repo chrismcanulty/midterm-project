@@ -15,7 +15,11 @@
 <body>
   <h3 class="sign-in-header"> Sign In or Create an Account to Unlock</h3>
   <div class="login-box">
+    <% if(userLogin) { %>
     <form action='/login' method="POST">
+      <% } else { %>
+        <form action='/adminLogin' method="POST"></form>
+        <% } %>
       <fieldset class="login-fieldset ">
       <h2 class="login-register__title"> Sign In </h2>
       <div>
