@@ -13,37 +13,36 @@
 <body>
   <h2>Temporary Home Page</h2>
   <script>
-   window.addEventListener('DOMContentLoaded', (event) => {
-  CometChatWidget.init({
-    "appID": "220898e1d5d1cfab",
-    "appRegion": "US",
-    "authKey":"aa2d64b1f1f88633767c637b2a65e8df3949c2b5"
-  }).then(response => {
-    console.log("Initialization completed successfully");
-    //You can now call login function.
-    CometChatWidget.login({
-      "uid": "superhero2"
-    }).then(response => {
-      CometChatWidget.launch({
-        "widgetID":"b4418c44-aed0-44f6-81ed-277bc71f3eff",
-        "docked": "true",
-        "alignment": "right", //left or right
-        "roundedCorners": "true",
-        "height": "450px",
-        "width": "400px",
-        "defaultID": 'superhero1', //default UID (user) or GUID (group) to show,
-        "defaultType": 'user' //user or group
-      });
-    }, error => {
-      console.log("User login failed with error:", error);
-      //Check the reason for error and take appropriate action.
-    });
-  }, error => {
-    console.log("Initialization failed with error:", error);
-    //Check the reason for error and take appropriate action.
-  });
-});
+    const UID = "<%= userChatId %>";
+    window.addEventListener('DOMContentLoaded', (event) => {
+      CometChatWidget.init({
+        "appID": "220898e1d5d1cfab",
+        "appRegion": "US",
+        "authKey": "aa2d64b1f1f88633767c637b2a65e8df3949c2b5"
+      }).then(response => {
+        console.log("Initialization completed successfully");
+        //You can now call login function.
+        const user = new CometChatWidget.CometChat.User(UID);
+        user.setName('guest');
+        CometChatWidget.createOrUpdateUser(user).then((user) => {
+          CometChatWidget.login({
+            uid: UID,
+          })
+          .then(response => {
+            CometChatWidget.launch({
+              "widgetID": "b4418c44-aed0-44f6-81ed-277bc71f3eff",
+              "docked": "true",
+              "alignment": "right", //left or right
+              "roundedCorners": "true",
+              "height": "450px",
+              "width": "400px",
+              "defaultID": '<%= sellerChatId %>', //default UID (user) or GUID (group) to show,
+              "defaultType": 'user' //user or group
+            });
+          })
+        })
+      })
+    })
   </script>
 </body>
-
 </html>

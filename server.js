@@ -40,6 +40,7 @@ const logoutRoutes = require(`./routes/logout`);
 const adminLoginRoutes = require(`./routes/adminLogin`);
 const registerRoutes = require('./routes/registration');
 const adminRegisterRoutes = require('./routes/adminRegistration');
+const adminCreateItem = require(`./routes/adminCreateItem`);
 const temphomeRoutes = require('./routes/temphome');
 
 // Mount all resource routes
@@ -53,6 +54,7 @@ app.use(`/adminLogin`,adminLoginRoutes);
 app.use(`/logout`,logoutRoutes);
 app.use('/register', registerRoutes);
 app.use('/adminRegister', adminRegisterRoutes);
+app.use(`/adminCreateItem`, adminCreateItem);
 app.use('/home', temphomeRoutes);
 // Note: mount other resources here, using the same pattern above
 

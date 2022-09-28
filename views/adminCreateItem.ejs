@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Admin Create Item Page </title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles/login-registration.css" type="text/css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="login-box">
+    <form action="/adminCreateItem" method="POST">
+      <fieldset class="login-fieldset ">
+        <h2 class="login-register__title"> Create an Item </h2>
+        <div>
+          <label for="title"> </label>
+          <input class="login-password" type=title name=title placeholder="Title" />
+        </div>
+        <div>
+          <label for="description"> </label>
+          <input class="description-box" type=text name=description placeholder="Description" />
+        </div>
+        <div>
+          <label for="thumbnail"></label>
+          <input class="login-email" type="url" name=thumbnail placeholder="Thumbnail Photo URL" />
+        </div>
+        <div>
+          <label for="coverPhoto"> </label>
+          <input class="login-password" type="url"  name=coverPhoto placeholder="Cover Photo URL" />
+        </div>
+        <div>
+          <label for="price"> </label>
+          <input class="login-password" type="number"  name=price placeholder="Price" />
+        </div>
+        <div>
+          <label for="dateListed"> </label>
+          <input class="login-password" type="date"  name=dateListed placeholder="Listing Date" />
+        </div>
+        <button class="login-button" type="submit">Submit</button>
+      </fieldset>
+    </form>
+</body>
+
+</html>

@@ -21,7 +21,6 @@ router.get('/', (req, res) => {
     userLogin: false
   }
   res.render("login", templateVars);
-  console.log("Render Working")
 });
 
 
