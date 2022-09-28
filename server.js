@@ -34,7 +34,8 @@ const loginRoutes = require('./routes/login');
 const registerRoutes = require('./routes/registration');
 const temphomeRoutes = require('./routes/temphome');
 const favouritesRoutes = require('./routes/favourites');
-const itemsRoutes = require('./routes/items')
+const itemsRoutes = require('./routes/items');
+
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own

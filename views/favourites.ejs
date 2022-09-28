@@ -10,10 +10,11 @@
 
   <link rel="stylesheet" href="/styles/main.css" />
 
-  <title>Document</title>
+  <title>My Account</title>
 </head>
 
 <body>
+  <%- include('partials/_navbar') %>
   <form class="form-inline" action="/items" method="POST">
     <label for="min-price-text">Minimum price:</label>
     <textarea name="text" class="min-price-text" placeholder="$0"></textarea>
@@ -52,6 +53,7 @@
         <% } %>
     </tbody>
   </table>
+  <%- include('partials/_footer') %>
 </body>
 
 </html>
