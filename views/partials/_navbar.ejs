@@ -31,31 +31,32 @@
           <li class="nav-item"></li>
           <% if(user) { %>
             <div>
-            <li class="nav-item"><a class="nav-link" href="/logout"
-                style="color: var(--bs-navbar-active-color);">Logout</a>
-            </li>
-            <li class="nav-item"><a class="nav-link" href="/items"
-              style="color: var(--bs-navbar-active-color);">Products</a>
-            </li>
-          </div>
+              <li class="nav-item"><a class="nav-link" href="/logout"
+                  style="color: var(--bs-navbar-active-color);">Logout</a>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="/items"
+                  style="color: var(--bs-navbar-active-color);">Products</a>
+              </li>
+            </div>
             <% } else { %>
               <div>
                 <li class="nav-item"><a class="nav-link" href="/items"
-                  style="color: var(--bs-navbar-active-color);">Products</a>
+                    style="color: var(--bs-navbar-active-color);">Products</a>
                 </li>
-              <li class="nav-item"><a class="nav-link" href="/login" style="color: var(--bs-navbar-active-color);">User
-                  Login</a>
-              </li>
-              <li class="nav-item"><a class="nav-link" href="/adminLogin"
-                  style="color: var(--bs-navbar-active-color);">Admin Login</a>
-              </li>
-              <li class="nav-item"><a class="nav-link" href="/register"
-                  style="color: var(--bs-navbar-active-color);">User Register</a>
-              </li>
-              <li class="nav-item"><a class="nav-link" href="/adminRegister"
-                style="color: var(--bs-navbar-active-color);">Admin Register</a>
-              </li>
-            </div>
+                <li class="nav-item"><a class="nav-link" href="/login"
+                    style="color: var(--bs-navbar-active-color);">User
+                    Login</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="/adminLogin"
+                    style="color: var(--bs-navbar-active-color);">Admin Login</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="/register"
+                    style="color: var(--bs-navbar-active-color);">User Register</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="/adminRegister"
+                    style="color: var(--bs-navbar-active-color);">Admin Register</a>
+                </li>
+              </div>
               <% } %>
         </ul><a href="/favourites"></a><button href="/favourites" class="btn btn-primary" data-bss-hover-animate="pulse"
           type="button"
