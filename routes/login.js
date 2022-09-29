@@ -6,7 +6,6 @@ const router = express.Router();
 const db = require('../db/connection');
 
 
-
 // router.use(cookieSession({
 //   name: 'session',
 //   keys: ["Keys[0]"],
@@ -14,6 +13,7 @@ const db = require('../db/connection');
 
 const users = {
 };
+
 
 
 router.get('/', (req, res) => {
