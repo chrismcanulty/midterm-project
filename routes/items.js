@@ -13,7 +13,10 @@ router.get('/', (req, res) => {
   itemsHelper.getItems()
     .then((data) => {
       console.log(data);
-      const templateVars = { data };
+      const templateVars = {
+        data,
+        loggedIn: true,
+       };
       return res.render("items", templateVars)
     });
 });

@@ -5,6 +5,7 @@ const db = require('../db/connection');
 router.get('/', (req, res) => {
   const templateVars = {
     userId: 67,
+    loggedIn: true,
     userChatId: "visitor_67",
     sellerChatId: "seller_32"
   }

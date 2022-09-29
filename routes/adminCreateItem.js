@@ -3,7 +3,10 @@ const router = express.Router();
 const db = require('../db/connection');
 
 router.get(`/`, (req, res) => {
-  res.render(`adminCreateItem`);
+  const templateVars = {
+    loggedIn: true
+  }
+  res.render(`adminCreateItem`, templateVars);
 })
 
 router.post(`/`, (req, res) => {
