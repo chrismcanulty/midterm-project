@@ -23,7 +23,6 @@ router.get('/', (req, res) => {
   })
   const templateVars = {
     user: users[req.session.userId],
-    loggedIn: false,
     userLogin: true
   }
   res.render("login", templateVars);
@@ -40,8 +39,7 @@ router.post('/', (req, res) => {
         if(password === result.rows[0].password){
           req.session.userId = result.rows[0].id
           console.log("password matched")
-          req.session.userId = 1;
-          res.redirect('/');
+          res.redirect('/home');
         }
       } else {
         return null;
