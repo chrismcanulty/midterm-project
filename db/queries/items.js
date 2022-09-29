@@ -23,14 +23,15 @@ const filterItemsByPrice = (minValue, maxValue) => {
     });
 }
 
-const getFavourites = () => {
-  return db.query('SELECT * FROM items;')
+const getFavourites = (userId) => {
+  return db.query(`SELECT * FROM favourites
+  JOIN items ON product_id = items.id
+  JOIN users ON customer_id = users.id
+  WHERE customer_id = $1;
+  `, [userId])
     .then(data => {
       return data.rows;
-    })
-    .catch((err) => {
-      return err.message;
     });
-};
+}
 
 module.exports = { getItems, filterItemsByPrice, getFavourites };

@@ -15,45 +15,45 @@
 
 <body>
   <%- include('partials/_navbar') %>
-  <form class="form-inline" action="/items" method="POST">
-    <label for="min-price-text">Minimum price:</label>
-    <textarea name="text" class="min-price-text" placeholder="$0"></textarea>
-    <label for="max-price-text">Maximum price:</label>
-    <textarea name="text" class="max-price-text" placeholder="$0"></textarea>
-    <!-- Class for button and character counter -->
-    <div class="button-counter">
-      <button class="tweet-button" type="submit">Search</button>
-    </div>
-  </form>
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Image</th>
-        <th scope="col">Item name</th>
-        <th scope="col">Description</th>
-        <th scope="col">Price</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% for (let item of data) { %>
+    <form class="form-inline" action="/items" method="POST">
+      <label for="min-price-text">Minimum price:</label>
+      <textarea name="text" class="min-price-text" placeholder="$0"></textarea>
+      <label for="max-price-text">Maximum price:</label>
+      <textarea name="text" class="max-price-text" placeholder="$0"></textarea>
+      <!-- Class for button and character counter -->
+      <div class="button-counter">
+        <button class="tweet-button" type="submit">Search</button>
+      </div>
+    </form>
+    <table class="table">
+      <thead>
         <tr>
-          <td>
-            <img src=<%=item.thumbnail_photo_url %>/>
-          </td>
-          <td>
-            <%= item.title %>
-          </td>
-          <td>
-            <%= item.description %>
-          </td>
-          <td>
-            <%= item.price %>
-          </td>
+          <th scope="col">Image</th>
+          <th scope="col">Item name</th>
+          <th scope="col">Description</th>
+          <th scope="col">Price</th>
         </tr>
-        <% } %>
-    </tbody>
-  </table>
-  <%- include('partials/_footer') %>
+      </thead>
+      <tbody>
+        <% for (let item of data) { %>
+          <tr>
+            <td>
+              <img src=<%=item.thumbnail_photo_url %>/>
+            </td>
+            <td>
+              <%= item.title %>
+            </td>
+            <td>
+              <%= item.description %>
+            </td>
+            <td>
+              <%= item.price %>
+            </td>
+          </tr>
+          <% } %>
+      </tbody>
+    </table>
+    <%- include('partials/_footer') %>
 </body>
 
 </html>
