@@ -13,6 +13,7 @@
 </head>
 
 <body>
+  <%- include('partials/_navbar',{loggedIn}) %>
   <h3 class="sign-in-header"> Sign In or Create an Account to Unlock</h3>
   <div class="login-box">
     <% if(userLogin) { %>
@@ -35,6 +36,7 @@
     </fieldset>
   </form>
 </div>
+<%- include('partials/_footer') %>
 </body>
 
 </html>

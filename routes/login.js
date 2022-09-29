@@ -23,6 +23,7 @@ router.get('/', (req, res) => {
   })
   const templateVars = {
     user: users[req.session.userId],
+    loggedIn: false,
     userLogin: true
   }
   res.render("login", templateVars);

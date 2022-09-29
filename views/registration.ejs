@@ -13,6 +13,7 @@
 </head>
 
 <body>
+  <%- include('partials/_navbar', {loggedIn}) %>
   <div class="login-box">
     <% if(userRegister) { %>
     <form action="/register" method="POST">
@@ -37,6 +38,7 @@
         <button class="login-button" type="submit">Submit</button>
       </fieldset>
     </form>
+  <%- include('partials/_footer') %>
 </body>
 
 </html>

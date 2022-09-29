@@ -7,4 +7,11 @@ const getUsers = () => {
     });
 };
 
-module.exports = { getUsers };
+const getFavourites = () => {
+  return db.query('SELECT * FROM users;')
+    .then(data => {
+      return data.rows;
+    });
+}
+
+module.exports = { getUsers, getFavourites };

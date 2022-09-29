@@ -42,6 +42,9 @@ const registerRoutes = require('./routes/registration');
 const adminRegisterRoutes = require('./routes/adminRegistration');
 const adminCreateItem = require(`./routes/adminCreateItem`);
 const temphomeRoutes = require('./routes/temphome');
+const favouritesRoutes = require('./routes/favourites');
+const itemsRoutes = require('./routes/items');
+
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -49,6 +52,8 @@ const temphomeRoutes = require('./routes/temphome');
 app.use('/api/users', userApiRoutes);
 app.use('/api/widgets', widgetApiRoutes);
 app.use('/users', usersRoutes);
+app.use('/favourites', favouritesRoutes);
+app.use('/items', itemsRoutes);
 app.use('/login', loginRoutes);
 app.use(`/adminLogin`,adminLoginRoutes);
 app.use(`/logout`,logoutRoutes);

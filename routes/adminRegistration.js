@@ -12,7 +12,8 @@ const db = require('../db/connection');
 
 router.get('/', (req, res) => {
   const templateVars = {
-    userRegister: false
+    userRegister: false,
+    loggedIn: false
   }
   res.render('registration', templateVars);
 });
