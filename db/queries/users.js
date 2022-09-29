@@ -14,4 +14,12 @@ const getFavourites = () => {
     });
 }
 
-module.exports = { getUsers, getFavourites };
+const addToFavourites = () => {
+  // edit this line
+  return db.query('SELECT * FROM users;')
+    .then(data => {
+      return data.rows;
+    });
+}
+
+module.exports = { getUsers, getFavourites, addToFavourites };

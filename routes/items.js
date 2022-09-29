@@ -12,26 +12,31 @@ const itemsHelper = require('../db/queries/items.js');
 router.get('/', (req, res) => {
   itemsHelper.getItems()
     .then((data) => {
-      console.log(data);
+      // TODO: need to modify templateVars so it passes in user object
       const templateVars = {
         data,
-        loggedIn: true,
-       };
+        user: true,
+      };
       return res.render("items", templateVars)
     });
 });
 
 // below should be a get request - if possible come back and refactor to get request
 
-router.post('/', (req, res) => {
-  const minValue = req.body.text[0];
-  const maxValue = req.body.text[1];
-  const templateVars = { minValue, maxValue };
+router.get('/filtered', (req, res) => {
+  const minValue = req.query.textMin;
+  const maxValue = req.query.textMax;
+  // TODO: need to modify templateVars so it passes in user object
   itemsHelper.filterItemsByPrice(minValue, maxValue)
     .then((data) => {
-      const templateVars = { data };
+      const templateVars = { data, user: true };
       return res.render("items", templateVars)
     })
 });
+
+// add route to add item to favourites database - post request
+// res.redirect at the end of the post request
+
+
 
 module.exports = router;
