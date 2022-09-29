@@ -14,29 +14,29 @@
 
 <body>
   <%- include('partials/_navbar',{loggedIn}) %>
-  <h3 class="sign-in-header"> Sign In or Create an Account to Unlock</h3>
-  <div class="login-box">
-    <% if(userLogin) { %>
-    <form action='/login' method="POST">
-      <% } else { %>
-        <form action='/adminLogin' method="POST"></form>
-        <% } %>
-      <fieldset class="login-fieldset ">
-      <h2 class="login-register__title"> Sign In </h2>
-      <div>
-        <label for="email"></label>
-        <input class="login-email" type=text name=email value maxlength="50" autocapitalize="off" autocomplete="email"
-          placeholder="Email Address" />
-      </div>
-      <div>
-        <label for="password"> </label>
-        <input class="login-password" type=password name=password placeholder="Password" />
-      </div>
-      <button class="login-button" type="submit">Sign In </button>
-    </fieldset>
-  </form>
-</div>
-<%- include('partials/_footer') %>
+    <h3 class="sign-in-header"> Sign In or Create an Account to Unlock</h3>
+    <div class="login-box">
+      <% if(userLogin) { %>
+        <form action='/login' method="POST">
+          <% } else { %>
+            <form action='/adminLogin' method="POST"></form>
+            <% } %>
+              <fieldset class="login-fieldset ">
+                <h2 class="login-register__title"> Sign In </h2>
+                <div>
+                  <label for="email"></label>
+                  <input class="login-email" type=text name=email value maxlength="50" autocapitalize="off"
+                    autocomplete="email" placeholder="Email Address" />
+                </div>
+                <div>
+                  <label for="password"> </label>
+                  <input class="login-password" type=password name=password placeholder="Password" />
+                </div>
+                <button class="login-button" type="submit">Sign In </button>
+              </fieldset>
+        </form>
+    </div>
+    <%- include('partials/_footer') %>
 </body>
 
 </html>
