@@ -8,6 +8,11 @@
 
   <link rel="stylesheet" href="/styles/main.css" />
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
   <title>Products</title>
 </head>
 
@@ -46,6 +51,14 @@
             </td>
             <td>
               <%= item.price %>
+            </td>
+            <td>
+              <form class="favourites-form" action="/items" method="POST">
+                <input type="hidden" name=itemId value=<%=item.id %> />
+                <button type="submit" id="favourite-button">
+                  <i class="fa-solid fa-heart" image:hover { filter: brightness(50%); }></i>
+                </button>
+              </form>
             </td>
           </tr>
           <% } %>

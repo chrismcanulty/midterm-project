@@ -44,6 +44,15 @@ router.get('/filtered', (req, res) => {
 // add route to add item to favourites database - post request
 // res.redirect at the end of the post request
 
-
+router.post('/', (req, res) => {
+  const itemId = req.body.itemId;
+  const userId = req.session.userId;
+  console.log("Item", itemId);
+  console.log("User", req.session.userId)
+  itemsHelper.addToFavourites(userId, itemId)
+    .then((data) => {
+      return res.redirect("/items");
+    })
+});
 
 module.exports = router;

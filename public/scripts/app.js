@@ -3,6 +3,18 @@
 // ensure page elements exist prior to execution of client.js code
 $(document).ready(function() {
 
+  const $form = $('favourites-form');
+
+  $form.submit((event) => {
+    console.log(event.target);
+    // prevent default behaviour of brower, i.e. prevent page from refreshing when form submitted
+    event.preventDefault();
+
+    $.post('/items', "hi", (response) => {
+
+    });
+  });
+
   // const createItemElement = (item) => {
   //   // define variable to format date created for each item
   //   const ago = timeago.format(item.date_listed);
