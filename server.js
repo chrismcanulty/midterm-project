@@ -35,6 +35,8 @@ const registerRoutes = require('./routes/registration');
 const temphomeRoutes = require('./routes/temphome');
 const favouritesRoutes = require('./routes/favourites');
 const itemsRoutes = require('./routes/items');
+const adminRoutes = require('./routes/admin');
+
 
 
 // Mount all resource routes
@@ -48,6 +50,8 @@ app.use('/items', itemsRoutes);
 app.use('/login', loginRoutes);
 app.use('/register', registerRoutes);
 app.use('/home', temphomeRoutes);
+app.use('/admin', adminRoutes);
+
 // Note: mount other resources here, using the same pattern above
 
 // Home page
