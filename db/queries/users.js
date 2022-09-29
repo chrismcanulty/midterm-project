@@ -14,4 +14,6 @@ const getFavourites = () => {
     });
 }
 
+
+
 module.exports = { getUsers, getFavourites };

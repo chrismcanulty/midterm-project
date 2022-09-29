@@ -8,6 +8,7 @@ const morgan = require('morgan');
 const cookieSession = require('cookie-session');
 const app = express();
 const PORT = process.env.PORT || 8080;
+const db = require('./db/connection');
 
 app.set('view engine', 'ejs');
 
@@ -68,7 +69,16 @@ app.use('/home', temphomeRoutes);
 // Separate them into separate routes files (see above).
 
 app.get('/', (req, res) => {
-  res.render('index');
+  db.query('SELECT * FROM users WHERE users.id = $1', [req.session.userId])
+  .then((result) => {
+    console.log(result);
+    const templateVars = {
+      user: result[0],
+      userLogin: true,
+      loggedIn: false
+    }
+  res.render('index', templateVars);
+  });
 });
 
 app.listen(PORT, () => {

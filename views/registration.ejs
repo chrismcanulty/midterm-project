@@ -13,9 +13,9 @@
 </head>
 
 <body>
-  <%- include('partials/_navbar', {loggedIn}) %>
+  <%- include('partials/_navbar') %>
   <div class="login-box">
-    <% if(userRegister) { %>
+    <% if(!user) { %>
     <form action="/register" method="POST">
       <% } else { %>
         <form action="/adminRegister" method="POST">

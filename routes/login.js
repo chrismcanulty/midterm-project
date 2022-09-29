@@ -17,16 +17,15 @@ const users = {
 
 
 router.get('/', (req, res) => {
-  db.query('SELECT * FROM users')
+  db.query('SELECT * FROM users WHERE users.id = $1', [req.session.userId])
   .then((result) => {
-    console.log(result);
+    const templateVars = {
+      user: result.rows[0],
+      userLogin: true,
+      loggedIn: false
+    }
+    res.render("login", templateVars);
   })
-  const templateVars = {
-    user: users[req.session.userId],
-    userLogin: true
-  }
-  res.render("login", templateVars);
-  console.log("Render Working")
 });
 
 

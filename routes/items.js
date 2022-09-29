@@ -8,16 +8,23 @@
 const express = require('express');
 const router = express.Router();
 const itemsHelper = require('../db/queries/items.js');
+const db = require(`../db/connection`);
 
 router.get('/', (req, res) => {
-  itemsHelper.getItems()
-    .then((data) => {
-      console.log(data);
-      const templateVars = {
-        data,
-        loggedIn: true,
-       };
-      return res.render("items", templateVars)
+  db.query('SELECT * FROM users WHERE users.id = $1', [req.session.userId])
+    .then((result) => {
+      itemsHelper.getItems()
+        .then((data) => {
+          console.log(data);
+          const templateVars = {
+            data,
+            user: result.rows[0],
+            userLogin: true,
+            loggedIn: true,
+          };
+          return res.render("items", templateVars)
+
+        })
     });
 });
 

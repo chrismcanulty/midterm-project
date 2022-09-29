@@ -3,14 +3,20 @@ const router = express.Router();
 const db = require('../db/connection');
 
 router.get('/', (req, res) => {
-  const templateVars = {
-    userId: 67,
-    loggedIn: true,
-    userChatId: "visitor_67",
-    sellerChatId: "seller_32"
-  }
-  console.log('get home', req.session);
-  res.render('temphome', templateVars);
+  db.query('SELECT * FROM users WHERE users.id = $1', [req.session.userId])
+  .then((result) => {
+    const templateVars = {
+      user: result.rows[0],
+      userLogin: true,
+      loggedIn: false,
+      userId: 67,
+      loggedIn: true,
+      userChatId: "visitor_67",
+      sellerChatId: "seller_32"
+    }
+    res.render('temphome', templateVars);
+  });
+    console.log('get home', req.session);
 });
 
 module.exports = router;

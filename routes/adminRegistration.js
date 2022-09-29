@@ -11,11 +11,16 @@ const db = require('../db/connection');
 
 
 router.get('/', (req, res) => {
-  const templateVars = {
-    userRegister: false,
-    loggedIn: false
-  }
+  db.query('SELECT * FROM users WHERE users.id = $1', [req.session.userId])
+  .then((result) => {
+    const templateVars = {
+      user: result.rows[0],
+      userRegister: false,
+      userLogin: true,
+      loggedIn: false
+    }
   res.render('registration', templateVars);
+  })
 });
 
 
