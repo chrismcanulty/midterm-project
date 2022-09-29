@@ -47,8 +47,6 @@ router.get('/filtered', (req, res) => {
 router.post('/', (req, res) => {
   const itemId = req.body.itemId;
   const userId = req.session.userId;
-  console.log("Item", itemId);
-  console.log("User", req.session.userId)
   itemsHelper.addToFavourites(userId, itemId)
     .then((data) => {
       return res.redirect("/items");
