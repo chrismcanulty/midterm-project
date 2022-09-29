@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript" src="https://unpkg.com/@cometchat-pro/chat@3.0.10/CometChat.js"></script>
+  <script defer src="https://widget-js.cometchat.io/v3/cometchatwidget.js"></script>
+  <title>Temporary Home Page</title>
+</head>
+
+<body>
+  <%- include('partials/_navbar') %>
+  <h2>Temporary Home Page</h2>
+  <script>
+    const UID = "<%= userChatId %>";
+    window.addEventListener('DOMContentLoaded', (event) => {
+      CometChatWidget.init({
+        "appID": "220898e1d5d1cfab",
+        "appRegion": "US",
+        "authKey": "aa2d64b1f1f88633767c637b2a65e8df3949c2b5"
+      }).then(response => {
+        console.log("Initialization completed successfully");
+        //You can now call login function.
+        const user = new CometChatWidget.CometChat.User(UID);
+        user.setName('guest');
+        CometChatWidget.createOrUpdateUser(user).then((user) => {
+          CometChatWidget.login({
+            uid: UID,
+          })
+          .then(response => {
+            CometChatWidget.launch({
+              "widgetID": "b4418c44-aed0-44f6-81ed-277bc71f3eff",
+              "docked": "true",
+              "alignment": "right", //left or right
+              "roundedCorners": "true",
+              "height": "450px",
+              "width": "400px",
+              "defaultID": '<%= sellerChatId %>', //default UID (user) or GUID (group) to show,
+              "defaultType": 'user' //user or group
+            });
+          })
+        })
+      })
+    })
+  </script>
+</body>
+</html>
