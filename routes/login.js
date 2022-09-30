@@ -38,7 +38,7 @@ router.post('/', (req, res) => {
         if(password === result.rows[0].password){
           req.session.userId = result.rows[0].id
           console.log("password matched")
-          res.redirect('/home');
+          res.redirect('/items');
         }
       } else {
         return null;

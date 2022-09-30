@@ -32,7 +32,7 @@ router.post('/', (req, res) => {
         console.log(result.rows[0]);
         if(password === result.rows[0].password){
           console.log("password matched")
-          res.redirect('/home');
+          res.redirect('/items');
         }
       } else {
         return null;

@@ -3,10 +3,15 @@ const router = express.Router();
 const db = require('../db/connection');
 
 router.get(`/`, (req, res) => {
-  const templateVars = {
-    loggedIn: true
-  }
-  res.render(`adminCreateItem`, templateVars);
+  db.query('SELECT * FROM users WHERE users.id = $1', [req.session.userId])
+  .then((result) => {
+    const templateVars = {
+      user: result.rows[0],
+      userLogin: true,
+      loggedIn: false
+    }
+    res.render(`adminCreateItem`, templateVars);
+  });
 })
 
 router.post(`/`, (req, res) => {
