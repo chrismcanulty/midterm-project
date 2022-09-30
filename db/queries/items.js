@@ -15,7 +15,6 @@ const filterItemsByPrice = (minValue, maxValue) => {
   WHERE price < $2 AND price > $1
   ;`, [minValue, maxValue])
     .then(data => {
-      console.log("Data.rows", data.rows);
       return data.rows;
     })
     .catch((err) => {
@@ -34,4 +33,13 @@ const getFavourites = (userId) => {
     });
 }
 
-module.exports = { getItems, filterItemsByPrice, getFavourites };
+const addToFavourites = (userId, itemId) => {
+  return db.query(`INSERT INTO favourites (customer_id, product_id, admin_id)
+    VALUES ($1, $2, $3);`, [userId, itemId, 1])
+    .then(data => {
+      return data.rows;
+    });
+}
+
+
+module.exports = { getItems, filterItemsByPrice, getFavourites, addToFavourites };
