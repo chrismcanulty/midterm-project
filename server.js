@@ -64,6 +64,7 @@ app.use(`/logout`,logoutRoutes);
 app.use('/register', registerRoutes);
 app.use('/adminRegister', adminRegisterRoutes);
 app.use(`/adminCreateItem`, adminCreateItem);
+app.use('/admin', adminRoutes);
 // app.use('/home', temphomeRoutes);
 // Note: mount other resources here, using the same pattern above
 
