@@ -15,7 +15,7 @@
 <body>
   <nav class="navbar navbar-light navbar-expand-md py-3"
     style="background: #ffffff;font-family: 'Anonymous Pro', monospace;border: 3px solid rgb(0,0,0) ;">
-    <div class="container"><a class="navbar-brand d-flex align-items-center" href="/"><span
+    <div class="container"><a class="navbar-brand d-flex align-items-center justify-content-center flex-direction-row" href="/"><span
           class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon"
           data-bss-hover-animate="pulse" style="background: rgb(0,0,0);"><svg xmlns="http://www.w3.org/2000/svg"
             width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-basket3">
@@ -58,10 +58,11 @@
                 </li>
               </div>
               <% } %>
-        </ul><a href="/favourites"></a><button href="/favourites" class="btn btn-primary" data-bss-hover-animate="pulse"
-          type="button"
-          style="background: rgb(0,0,0);border-style: none;border-color: var(--bs-navbar-active-color);">My
-          Account</button>
+        </ul><a href="/favourites">
+          <button href="/favourites" class="btn btn-primary" data-bss-hover-animate="pulse" type="button"
+            style="background: rgb(0,0,0);border-style: none;border-color: var(--bs-navbar-active-color);">My Account
+          </button>
+        </a>
       </div>
     </div>
   </nav>
