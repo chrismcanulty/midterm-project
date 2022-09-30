@@ -55,6 +55,7 @@ const adminRoutes = require('./routes/admin');
 app.use('/api/users', userApiRoutes);
 app.use('/api/widgets', widgetApiRoutes);
 app.use('/users', usersRoutes);
+app.use('/admin',adminRoutes)
 app.use('/favourites', favouritesRoutes);
 app.use('/items', itemsRoutes);
 app.use('/login', loginRoutes);
