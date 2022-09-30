@@ -19,7 +19,7 @@
     <% if(userLogin) { %>
     <form action='/login' method="POST">
       <% } else { %>
-        <form action='/adminLogin' method="POST"></form>
+        <form action='/adminLogin' method="POST">
         <% } %>
       <fieldset class="login-fieldset ">
       <h2 class="login-register__title"> Sign In </h2>
@@ -32,7 +32,7 @@
         <label for="password"> </label>
         <input class="login-password" type=password name=password placeholder="Password" />
       </div>
-      <button class="login-button" type="submit">Sign In </button>
+      <button class="login-button" type="submit"> Sign In </button>
     </fieldset>
   </form>
 </div>

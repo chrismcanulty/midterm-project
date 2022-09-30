@@ -1,7 +1,6 @@
 const express = require('express');
 // const cookieSession = require('cookie-session');
 const bcrypt = require('bcryptjs');
-const { getUserByEmail } = require('../views/helper')
 const router = express.Router();
 const db = require('../db/connection');
 
@@ -30,6 +29,7 @@ router.get('/', (req, res) => {
 
 
 router.post('/', (req, res) => {
+  console.log("I GOT HERE");
   const { email, password } = req.body
   db.query(`SELECT * FROM users WHERE email = $1;`, [email])
     .then((result) => {

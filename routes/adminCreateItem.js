@@ -23,7 +23,7 @@ router.post(`/`, (req, res) => {
   `, [title, description, thumbnail, coverPhoto, price, dateListed])
   .then((result) => {
     console.log(result.rows[0])
-    res.redirect(`/home`);
+    res.redirect(`/items`);
   })
   .catch((err) => {
     console.log(err.message);

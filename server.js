@@ -42,7 +42,7 @@ const adminLoginRoutes = require(`./routes/adminLogin`);
 const registerRoutes = require('./routes/registration');
 const adminRegisterRoutes = require('./routes/adminRegistration');
 const adminCreateItem = require(`./routes/adminCreateItem`);
-const temphomeRoutes = require('./routes/temphome');
+// const temphomeRoutes = require('./routes/temphome');
 const favouritesRoutes = require('./routes/favourites');
 const itemsRoutes = require('./routes/items');
 
@@ -61,7 +61,7 @@ app.use(`/logout`,logoutRoutes);
 app.use('/register', registerRoutes);
 app.use('/adminRegister', adminRegisterRoutes);
 app.use(`/adminCreateItem`, adminCreateItem);
-app.use('/home', temphomeRoutes);
+// app.use('/home', temphomeRoutes);
 // Note: mount other resources here, using the same pattern above
 
 // Home page
@@ -71,14 +71,18 @@ app.use('/home', temphomeRoutes);
 app.get('/', (req, res) => {
   db.query('SELECT * FROM users WHERE users.id = $1', [req.session.userId])
   .then((result) => {
-    console.log(result);
     const templateVars = {
-      user: result[0],
+      user: result.rows[0],
       userLogin: true,
-      loggedIn: false
+      loggedIn: false,
+      userId: 67,
+      loggedIn: true,
+      userChatId: "visitor_67",
+      sellerChatId: "seller_32"
     }
-  res.render('index', templateVars);
+    res.render('index', templateVars);
   });
+    console.log('get home', req.session);
 });
 
 app.listen(PORT, () => {

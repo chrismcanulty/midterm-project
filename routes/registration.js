@@ -40,7 +40,7 @@ router.post ('/', (req,res) => {
       .then((result) => {
         console.log(result.rows[0])
         req.session.userId = result.rows[0].id
-        res.redirect('/home');
+        res.redirect('/');
 
     })
     .catch((err) => {
