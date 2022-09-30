@@ -1,0 +1,20 @@
+.maindiv {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  border: 2px dashed red;
+
+}
+.editdiv {
+  display: flex;
+  border: 3px solid black;
+  align-items: center;
+  justify-content: center;
+
+}
+.creatediv {
+  display: flex;
+  border: 3px solid black;
+  align-items: center;
+  justify-content: center;
+}

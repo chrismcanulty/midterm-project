@@ -1,0 +1,21 @@
+
+  <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>drop down</title>
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+</head>
+
+<body>
+  <% for (let item of data) { %>
+    <div class="dropdown"><button class="btn btn-primary dropdown-toggle" aria-expanded="true" type="button" style="background: rgb(0,0,0);">Dropdown </button>
+        <div class="dropdown-menu hide" data-bs-popper="none"><a class="dropdown-item" href="#"><%= item.title %></a></div>
+    </div>
+    <% } %>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

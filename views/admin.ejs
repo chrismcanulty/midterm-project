@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>Admin Tools</title>
+  <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/css/Chivo.css">
+</head>
+<body>
+
+  <%- include('partials/_navbar') %>
+  <div class="container justify-content-between flex-row">
+    <div class="row">
+        <div class="col-md-6 align-content-center justify-content-center">
+          <!-- <div class="dropdown show"><% //for (let item of data) { %><button class="btn btn-primary dropdown-toggle" aria-expanded="true" data-bs-toggle="dropdown" type="button" style="background: rgb(0,0,0);">Your Items</button>
+            <div class="dropdown-menu hide" data-bs-popper="none"><a class="dropdown-item" href="#"><%= //item.title %> </a></div>
+            <% //} %> -->
+            <select id="volume">  <% var options = data; for ( let i of options) {     var selected = ( i ) ? "selected" : "select from dropdown";%><option value="<%=options[ i ] %>" <%=selected %>><a action="/edit" method="POST"><%=i.title %></a></option><% } %> </select>
+
+          <div class="login-box">
+            <form action="/adminEditItem" method="POST">
+              <fieldset class="login-fieldset ">
+                <h2 class="login-register__title"> Edit Listing </h2>
+                <div>
+                  <label for="title"> </label>
+                  <input class="login-password" type=title name=title placeholder="New Title" />
+                </div>
+                <div>
+                  <label for="description"> </label>
+                  <input class="description-box" type=text name=description placeholder="New Description" />
+                </div>
+                <div>
+                  <label for="thumbnail"></label>
+                  <input class="login-email" type="url" name=thumbnail placeholder="New Photo URL" />
+                </div>
+                <div>
+                  <label for="coverPhoto"> </label>
+                  <input class="login-password" type="url"  name=coverPhoto placeholder="New Cover Photo URL" />
+                </div>
+                <div>
+                  <label for="price"> </label>
+                  <input class="login-password" type="number"  name=price placeholder="Updated Price" />
+                </div>
+                <div>
+                  <label for="dateListed"> </label>
+                  <input class="login-password" type="date"  name=dateListed placeholder="Edited Date" />
+                </div>
+                <button class="login-button" type="submit">Submit</button>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+
+        <div class="col-md-6 align-content-center justify-content-center">
+          <div class="login-box">
+            <form action="/adminCreateItem" method="POST">
+              <fieldset class="login-fieldset ">
+                <h2 class="login-register__title"> Create an Item </h2>
+                <div>
+                  <label for="title"> </label>
+                  <input class="login-password" type=title name=title placeholder="Title" />
+                </div>
+                <div>
+                  <label for="description"> </label>
+                  <input class="description-box" type=text name=description placeholder="Description" />
+                </div>
+                <div>
+                  <label for="thumbnail"></label>
+                  <input class="login-email" type="url" name=thumbnail placeholder="Thumbnail Photo URL" />
+                </div>
+                <div>
+                  <label for="coverPhoto"> </label>
+                  <input class="login-password" type="url"  name=coverPhoto placeholder="Cover Photo URL" />
+                </div>
+                <div>
+                  <label for="price"> </label>
+                  <input class="login-password" type="number"  name=price placeholder="Price" />
+                </div>
+                <div>
+                  <label for="dateListed"> </label>
+                  <input class="login-password" type="date"  name=dateListed placeholder="Listing Date" />
+                </div>
+                <button class="login-button" type="submit">Submit</button>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+  <%- include('partials/_footer') %>
+
+</body>
+</html>
