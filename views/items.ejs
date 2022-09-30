@@ -18,14 +18,15 @@
 
 <body>
   <%- include('partials/_navbar') %>
-    <form class="form-inline" action="/items/filtered" method="GET">
+    <form class="form-inline px-md-5" action="/items/filtered" method="GET">
       <label for="min-price-text">Minimum price:</label>
       <textarea name="textMin" class="min-price-text" placeholder="$0"></textarea>
       <label for="max-price-text">Maximum price:</label>
       <textarea name="textMax" class="max-price-text" placeholder="$0"></textarea>
       <!-- Class for button and character counter -->
       <div class="button-counter">
-        <button class="tweet-button" type="submit">Search</button>
+        <button class="tweet-button btn btn-primary px-md-5" data-bss-hover-animate="pulse"
+        style="background: rgb(0,0,0);border-style: none;" type="submit">Search</button>
       </div>
     </form>
     <table class="table">
