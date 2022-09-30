@@ -52,5 +52,12 @@ router.post('/', (req, res) => {
       return res.redirect("/items");
     })
 });
+// router.post('/items/:id/edit', (req, res) => {
+//   const newItem = req.params.id;
+//   if (!req.session.user_id) {
+//     return res.redirect('/adminLogin');
+//   }
+
+// })
 
 module.exports = router;

@@ -4,11 +4,10 @@ const userQueries = require('../db/queries/users');
 const itemsHelper = require('../db/queries/items.js');
 
 router.get('/', (req, res) => {
-  const userId = req.session.userId;
-  console.log("User ID", userId);
-  itemsHelper.getFavourites(userId)
+  const user = req.session.userId;
+  itemsHelper.getFavourites(user)
     .then((data) => {
-      const templateVars = { data };
+      const templateVars = { data, user };
       return res.render("favourites", templateVars)
     });
 });
