@@ -41,6 +41,17 @@ router.get('/filtered', (req, res) => {
     })
 });
 
+// add route to add item to favourites database - post request
+// res.redirect at the end of the post request
+
+router.post('/', (req, res) => {
+  const itemId = req.body.itemId;
+  const userId = req.session.userId;
+  itemsHelper.addToFavourites(userId, itemId)
+    .then((data) => {
+      return res.redirect("/items");
+    })
+});
 // router.post('/items/:id/edit', (req, res) => {
 //   const newItem = req.params.id;
 //   if (!req.session.user_id) {
