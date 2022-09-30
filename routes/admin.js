@@ -11,7 +11,9 @@ router.get('/', (req, res) => {
     .then((data) => {
       console.log(data);
       const templateVars = { data,
-        user: result.rows[0] };
+        user: result.rows[0],
+        seller: req.session.adminId,
+      };
       return res.render("admin", templateVars)
     });
   })
